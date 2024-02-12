@@ -18,7 +18,7 @@ namespace Gym.Data.DataRepository
         {
             _subscriberData = subscriberData;
         }
-        public  List<Subscribers> GetAllSubscriber()
+        public IEnumerable<Subscribers> GetAllSubscriber()
         {
             return _subscriberData.subscribers.ToList();
         }

@@ -16,18 +16,18 @@ namespace Gym.Servies.ServiesRepository
         {
             _staff = staff;
         }
-        public List<Staff> GetStaff()
+        public IEnumerable<Staff> GetStaff()
         {
             return _staff.GetAllStaff();
         }
         public Staff GetStaffId(int workerNumber)
         {
-            Staff foundWorker = _staff.GetAllStaff().Find(t => t.workerNumber == workerNumber);
+            Staff foundWorker = _staff.GetAllStaff().ToList().Find(t => t.workerNumber == workerNumber);
             if (foundWorker == null)
                 return null; 
             return foundWorker;
         }
-        public List<Staff> GetPosition(string position)
+        public IEnumerable<Staff> GetPosition(string position)
         {
             var foundpos = _staff.GetAllStaff().Where(t => t.position == position).ToList();
             if (foundpos == null)
@@ -41,14 +41,14 @@ namespace Gym.Servies.ServiesRepository
         }
         public void ServicePut(int workerNumber,  Staff updateWorker)
         {
-            int index = _staff.GetAllStaff().FindIndex(( w) =>  w.workerNumber == workerNumber);
-            _staff.GetAllStaff()[index].name = updateWorker.name;
-            _staff.GetAllStaff()[index].dateOfBirth = updateWorker.dateOfBirth;
+            int index = _staff.GetAllStaff().ToList(). FindIndex(( w) =>  w.workerNumber == workerNumber);
+            _staff.GetAllStaff().ToList()[index].name = updateWorker.name;
+            _staff.GetAllStaff().ToList()[index].dateOfBirth = updateWorker.dateOfBirth;
            // _staff.GetAllStaff()[index].workerNumber = updateWorker.workerNumber;
-            _staff.GetAllStaff()[index].phone = updateWorker.phone;
-            _staff.GetAllStaff()[index].address = updateWorker.address;
-            _staff.GetAllStaff()[index].email = updateWorker.email;
-            _staff.GetAllStaff()[index].position = updateWorker.position;
+            _staff.GetAllStaff().ToList()[index].phone = updateWorker.phone;
+            _staff.GetAllStaff().ToList()[index].address = updateWorker.address;
+            _staff.GetAllStaff().ToList()[index].email = updateWorker.email;
+            _staff.GetAllStaff().ToList()[index].position = updateWorker.position;
             _staff.DataPut(index, updateWorker);
         }
 

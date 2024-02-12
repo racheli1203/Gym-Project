@@ -8,11 +8,11 @@ namespace Gym.Core.ServicesModels
 {
     public interface IStaffService
     {
-        List<Staff> GetStaff();
+        public IEnumerable<Staff> GetStaff();
 
         public Staff GetStaffId(int id);
 
-        public List<Staff> GetPosition(string position);
+        public IEnumerable<Staff> GetPosition(string position);
 
         public void ServicePost(Staff newWorker);
 

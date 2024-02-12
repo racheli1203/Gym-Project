@@ -8,7 +8,7 @@ namespace Gym.Core.Models
 {
     public interface ISubscriber
     {
-        public  List<Subscribers> GetAllSubscriber();
+        public IEnumerable<Subscribers> GetAllSubscriber();
 
         public void DataPost(Subscribers newSubscriber);
 

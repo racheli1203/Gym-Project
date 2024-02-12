@@ -36,7 +36,7 @@ namespace Gym.Controllers
         }
         // GET api/<StaffController>/5
         [HttpGet("getbytype/{position}")]
-        public List<Staff> Get(string position)
+        public IEnumerable<Staff> Get(string position)
         {
             return _staff.GetPosition(position);
         }

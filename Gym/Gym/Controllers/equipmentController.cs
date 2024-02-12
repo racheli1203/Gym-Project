@@ -21,9 +21,10 @@ namespace Gym.Controllers
 
         // GET: api/<equipmentController>
         [HttpGet]
-        public IEnumerable<gymEquipment> Get()
+        public ActionResult<gymEquipment> Get()
         {
-            return _equipment.GetEquipment();
+            var list= _equipment.GetEquipment();
+            return Ok(list);
         }
 
         // GET api/<equipmentController>/5

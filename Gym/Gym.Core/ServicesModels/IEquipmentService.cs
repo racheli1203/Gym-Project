@@ -8,7 +8,7 @@ namespace Gym.Core.ServicesModels
 {
     public interface IEquipmentService
     {
-       public List<gymEquipment> GetEquipment();
+        public IEnumerable<gymEquipment> GetEquipment();
 
         public gymEquipment GetEquipmentId(int id);
 

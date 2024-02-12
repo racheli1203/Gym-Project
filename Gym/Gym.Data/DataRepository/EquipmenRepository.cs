@@ -16,9 +16,9 @@ namespace Gym.Data.DataRepository
         {
             _context = equipmentData;
         }
-        public  List<gymEquipment> GetAllEquipment()
+        public  IEnumerable<gymEquipment> GetAllEquipment()
         {
-            return _context.equipments.ToList();
+            return _context.equipments;
         }
 
         public void DataPost(gymEquipment value)

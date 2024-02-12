@@ -17,9 +17,9 @@ namespace Gym.Data.DataRepository
         {
             _staffContext = staffData;
         }
-        public  List<Staff> GetAllStaff()
+        public IEnumerable<Staff> GetAllStaff()
         {
-            return _staffContext.Staffs.ToList();
+            return _staffContext.Staffs;
         }
         public void DataPost( Staff newWorker)
         {

@@ -8,7 +8,7 @@ namespace Gym.Core.Models
 {
     public interface IEquipment
     {
-        public  List<gymEquipment> GetAllEquipment();
+        public IEnumerable<gymEquipment> GetAllEquipment();
 
         public void DataPost(gymEquipment value);
 

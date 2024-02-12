@@ -8,7 +8,7 @@ namespace Gym.Core.ServicesModels
 {
     public interface ISubscriberService
     {
-        List<Subscribers> GetSubscriber();
+        public IEnumerable<Subscribers> GetSubscriber();
 
         public Subscribers GetById(int subscriptionNumber);
 

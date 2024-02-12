@@ -8,7 +8,7 @@ namespace Gym.Core.Models
 {
     public interface IStaff
     {
-        public  List<Staff> GetAllStaff();
+        public IEnumerable<Staff> GetAllStaff();
 
         public void DataPost(Staff newWorker);
 

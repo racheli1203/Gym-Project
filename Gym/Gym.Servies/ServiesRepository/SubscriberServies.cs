@@ -17,13 +17,13 @@ namespace Gym.Servies.ServiesRepository
         {
             _subscriber = subscriber;
         }
-        public List<Subscribers> GetSubscriber()
+        public IEnumerable<Subscribers> GetSubscriber()
         {
             return _subscriber.GetAllSubscriber();
         }
         public Subscribers GetById(int subscriptionNumber)
         {
-            Subscribers subscriber = _subscriber.GetAllSubscriber().Find(s => s.subscriptionNumber == subscriptionNumber);
+            Subscribers subscriber = _subscriber.GetAllSubscriber().ToList().Find(s => s.subscriptionNumber == subscriptionNumber);
             if (subscriber == null)
                 return null;
             return subscriber;
@@ -38,15 +38,15 @@ namespace Gym.Servies.ServiesRepository
         public void ServicePut(int subscriptionNumber,  Subscribers value)
         {
 
-            int index = _subscriber.GetAllSubscriber().FindIndex((w) => w.subscriptionNumber == subscriptionNumber );
-            _subscriber.GetAllSubscriber()[index].idSubscriber = value.idSubscriber;
-            _subscriber.GetAllSubscriber()[index].name = value.name;
-            _subscriber.GetAllSubscriber()[index].dateOfBirth = value.dateOfBirth;
-            _subscriber.GetAllSubscriber()[index].endSubscripion = value.endSubscripion;
-            _subscriber.GetAllSubscriber()[index].phone = value.phone;
-            _subscriber.GetAllSubscriber()[index].status = value.status;
-            _subscriber.GetAllSubscriber()[index].email = value.email;
-            _subscriber.GetAllSubscriber()[index].startSubscripion = value.startSubscripion;
+            int index = _subscriber.GetAllSubscriber().ToList().FindIndex((w) => w.subscriptionNumber == subscriptionNumber );
+            _subscriber.GetAllSubscriber().ToList()[index].idSubscriber = value.idSubscriber;
+            _subscriber.GetAllSubscriber().ToList()[index].name = value.name;
+            _subscriber.GetAllSubscriber().ToList()[index].dateOfBirth = value.dateOfBirth;
+            _subscriber.GetAllSubscriber().ToList()[index].endSubscripion = value.endSubscripion;
+            _subscriber.GetAllSubscriber().ToList()[index].phone = value.phone;
+            _subscriber.GetAllSubscriber().ToList()[index].status = value.status;
+            _subscriber.GetAllSubscriber().ToList()[index].email = value.email;
+            _subscriber.GetAllSubscriber().ToList()[index].startSubscripion = value.startSubscripion;
             _subscriber.DataPut(index, value);
             //Subscribers foundsub = _subscriber.GetAllSubscriber().Find(s => s.subscriptionNumber == subscriptionNumber);
             //if (foundsub != null)
